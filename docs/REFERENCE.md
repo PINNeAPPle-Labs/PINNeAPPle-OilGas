@@ -16,7 +16,9 @@
 8. [Industry Standards & Validation Context](#industry-standards--validation-context)
 9. [Open Challenges & Gaps](#open-challenges--gaps)
 10. [Roadmap: Building the Reference Hub](#roadmap-building-the-reference-hub)
-11. [Sources](#sources)
+11. [Where this reference meets the PINNeAPPle codebase](#11-where-this-reference-meets-the-pinneapple-codebase)
+12. [Contributing](#12-contributing)
+13. [Sources](#sources)
 
 ---
 
@@ -227,6 +229,45 @@ A phased plan for an open-source repository to become the leading public referen
 - Explore **companion open benchmark infrastructure** (e.g., a hosted leaderboard with standardized SPE10/OpenFWI evaluation scripts) only once the curation-only leaderboard from Phase 1 has proven sustained community engagement — infrastructure should follow demonstrated demand, not precede it.
 - Maintain the **open-questions/gaps register** (Section 9) as a living document, explicitly inviting new research to "claim" and resolve listed gaps, turning the repo into not just a reference but a lightweight research-coordination point for the field.
 - Continue enforcing zero-fabrication sourcing discipline as the repo's core differentiator versus marketing-driven industry content — this is the credibility asset that makes "leading public reference" achievable at all.
+
+---
+
+## 11. Where this reference meets the PINNeAPPle codebase
+
+*Added November 2026.* Everything above describes the field. This section is the other half: the places inside the PINNeAPPle organisation where each topic has something runnable, so a claim here can be checked against a case rather than taken on trust. Links are to live issues and finished experiments, not aspirations.
+
+### Use cases and open work in [`PINNeAPPle`](https://github.com/PINNeAPPle-Labs/PINNeAPPle)
+
+| Topic from this document | Where it lives |
+|---|---|
+| Section 4 — real-gas thermodynamics in a solver loop | [#1464](https://github.com/PINNeAPPle-Labs/PINNeAPPle/issues/1464) Joule–Thomson CFD: OpenFOAM `rhoSimpleFoam` with `PengRobinsonGas` through an orifice or valve passage, ideal-gas versus real-gas checked against the isenthalpic value |
+| Section 6 — reservoir datasets and flow simulation | [`PINNeAPPle-Simr`](https://github.com/PINNeAPPle-Labs/PINNeAPPle-Simr) — public OPM decks (SPE10, Norne) run through OPM Flow, with `resdata` extraction and EGRID/ACTNUM geometry |
+| Section 4 — geomechanics | [#471](https://github.com/PINNeAPPle-Labs/PINNeAPPle/issues/471) geomechanics MPM: the GeoTaichi features still missing |
+
+### Benchmarks
+
+`PINNeAPPle-Benchmark` has no reservoir or process-engineering experiment. The Joule–Thomson case above is the one place with a measured real-gas result, and it reports what it does and does not check — it is a valve study, not a field benchmark.
+
+`PINNeAPPle-Simr` is explicitly a prototype that has not been scientifically validated; it is linked because it is the only reservoir pipeline in the organisation, not because it settles anything in Section 8.
+
+### Related repositories
+
+- [`PINNeAPPle`](https://github.com/PINNeAPPle-Labs/PINNeAPPle) — the library itself: PINNs, neural operators, solvers, geometry, validation.
+- [`PINNeAPPle-CFD`](https://github.com/PINNeAPPle-Labs/PINNeAPPle-CFD) — the end-to-end CFD workflow the valve case runs through.
+
+---
+
+## 12. Contributing
+
+This document is curated, and corrections are the most valuable contribution it receives.
+
+1. Open an issue or a pull request with the specific addition, correction or removal.
+2. **Cite a real, checkable source** — a paper, an official repo, a vendor page. Anything not verifiable is marked as such rather than stated as fact.
+3. Keep entries factual and neutral; no marketing language for commercial products, including PINNeAPPle's own.
+4. When adding a dataset, tool or solver, say what it is, who maintains it and where it lives.
+5. Flag what has gone stale — funding rounds, acquisitions and renamed products move quickly in this field.
+
+The full conventions are in [CONTRIBUTING.md](../CONTRIBUTING.md). If you are adding something that has a runnable counterpart in the PINNeAPPle organisation, add a row to Section 10 as well so the claim stays checkable.
 
 ---
 
